@@ -1,0 +1,49 @@
+// Firebase Firestore Security Rules for CodeCore
+// Deploy this in Firebase Console > Firestore > Rules
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow anyone to read topics (learning materials are public)
+    match /topics/{topicId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Allow anyone to read lessons (learning materials are public)
+    match /lessons/{lessonId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Users can only read/write their own profile
+    match /users/{userId} {
+      allow read, write: if isOwnUser(userId);
+
+      // Track user progress
+      allow write: if isOwnUser(userId) && onlyUpdatingProgress();
+    }
+
+    // Only admins can view admin collection
+    match /admins/{email} {
+      allow read, write: if isAdmin();
+    }
+
+    // Helper functions
+    function isOwnUser(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return exists(/databases/$(database)/documents/admins/$(request.auth.token.email))
+        && get(/databases/$(database)/documents/admins/$(request.auth.token.email)).data.approved == true;
+    }
+
+    function onlyUpdatingProgress() {
+      let allowedFields = ['completedLessons', 'bookmarkedLessons'];
+      return request.resource.data.keys().hasOnly(allowedFields);
+    }
+  }
+}
+
