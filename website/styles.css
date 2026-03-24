@@ -302,14 +302,70 @@ body {
 .brand-mark {
   width: 52px;
   height: 52px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--primary), var(--teal));
-  display: grid;
-  place-items: center;
-  font-family: "Syne", sans-serif;
-  font-weight: 800;
-  font-size: 1.4rem;
-  box-shadow: var(--glow);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pillar-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+.pillar {
+  width: 5px;
+  background-color: #00E5FF;
+  border-radius: 1.5px;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
+}
+
+.pillar-left {
+  height: 16px;
+  opacity: 0.8;
+}
+
+.pillar-center {
+  height: 26px;
+}
+
+.pillar-right {
+  height: 20px;
+  opacity: 0.9;
+}
+
+.bit-symbol {
+  position: absolute;
+  top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bit-unit {
+  width: 2.5px;
+  height: 2.5px;
+  background-color: #FFFFFF;
+  border-radius: 1px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 .eyebrow {
@@ -1393,6 +1449,87 @@ body {
   box-shadow: 0 8px 24px rgba(90, 62, 255, 0.25);
 }
 
+/* ─── CONTACT & OPEN SOURCE ──────────────────────────────────────────────────── */
+.contact-os {
+  margin-bottom: 60px;
+}
+
+.os-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.os-card {
+  padding: 28px 32px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  backdrop-filter: blur(16px);
+}
+
+.os-card h3 {
+  font-family: "Syne", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.os-card p {
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 200ms, box-shadow 200ms;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.linkedin-link {
+  background: rgba(10, 102, 194, 0.15);
+  color: #4da5ff;
+  border: 1px solid rgba(10, 102, 194, 0.3);
+}
+
+.linkedin-link:hover {
+  background: rgba(10, 102, 194, 0.3);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.2);
+}
+
+.github-link {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.github-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+}
+
+
 /* ─── TOAST ──────────────────────────────────────────────────────────────────── */
 .toast {
   position: fixed;
@@ -1611,9 +1748,20 @@ body {
     align-items: center;
   }
 
-  .fs-grid {
+  .fs-grid,
+  .os-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .os-card {
+    text-align: center;
+    align-items: center;
+    padding: 32px 20px;
+  }
+
+  .social-link {
+    align-self: center;
   }
 
   .stats-card {
