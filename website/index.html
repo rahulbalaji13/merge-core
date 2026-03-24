@@ -39,10 +39,6 @@
     </div>
   </div>
 
-  <div class="fw fw-rating" aria-hidden="true">
-    <div class="stars">★★★★★</div>
-    <span class="fw-label">4.9 on Play Store</span>
-  </div>
 
   <div class="fw fw-users" aria-hidden="true">
     <div class="avatar-stack">
@@ -185,48 +181,49 @@
             <section class="app-screen" data-screen="course">
               <div class="course-hero">
                 <p class="muted">Course detail</p>
-                <h3>Introduction to Algorithms</h3><span class="rating">★ 4.9 • 42 lessons</span>
+                <h3>Introduction to Algorithms</h3><span class="rating">42 lessons</span>
               </div>
-              <div class="syllabus-card">
-                <div>
-                  <p class="muted">Current lesson</p><strong>Greedy strategy essentials</strong>
-                </div><span>76%</span>
-              </div>
-              <div class="module-list">
-                <article><strong>Module 1</strong><span>Complexity and efficiency</span></article>
-                <article class="active-module"><strong>Module 2</strong><span>Sorting and searching</span></article>
-                <article><strong>Module 3</strong><span>Graphs and traversal</span></article>
-              </div>
-              <button class="screen-button">Resume lesson</button>
-            </section>
-            <section class="app-screen" data-screen="profile">
-              <div class="profile-top">
-                <div class="profile-avatar">A</div>
-                <div>
-                  <h3>Ada Lovelace</h3>
-                  <p class="muted">Student • Computer Science Track</p>
-                </div>
-              </div>
-              <div class="profile-grid">
-                <article><strong>18</strong><span>Saved resources</span></article>
-                <article><strong>7</strong><span>Day streak</span></article>
-                <article><strong>12</strong><span>Downloads</span></article>
-                <article><strong>3</strong><span>Certificates</span></article>
-              </div>
-              <div class="downloads-card">
-                <p class="muted">Available offline</p>
-                <ul>
-                  <li>Operating Systems revision pack</li>
-                  <li>SQL joins quick reference</li>
-                  <li>Discrete math formula sheet</li>
-                </ul>
-              </div>
-              <div class="bottom-nav"><span>Home</span><span>Library</span><span>Assistant</span><span
-                  class="active">Profile</span></div>
-            </section>
           </div>
+          <div class="syllabus-card">
+            <div>
+              <p class="muted">Current lesson</p><strong>Greedy strategy essentials</strong>
+            </div><span>76%</span>
+          </div>
+          <div class="module-list">
+            <article><strong>Module 1</strong><span>Complexity and efficiency</span></article>
+            <article class="active-module"><strong>Module 2</strong><span>Sorting and searching</span></article>
+            <article><strong>Module 3</strong><span>Graphs and traversal</span></article>
+          </div>
+          <button class="screen-button">Resume lesson</button>
+    </section>
+    <section class="app-screen" data-screen="profile">
+      <div class="profile-top">
+        <div class="profile-avatar">A</div>
+        <div>
+          <h3>Ada Lovelace</h3>
+          <p class="muted">Student • Computer Science Track</p>
         </div>
       </div>
+      <div class="profile-grid">
+        <article><strong>18</strong><span>Saved resources</span></article>
+        <article><strong>7</strong><span>Day streak</span></article>
+        <article><strong>12</strong><span>Downloads</span></article>
+        <article><strong>3</strong><span>Certificates</span></article>
+      </div>
+      <div class="downloads-card">
+        <p class="muted">Available offline</p>
+        <ul>
+          <li>Operating Systems revision pack</li>
+          <li>SQL joins quick reference</li>
+          <li>Discrete math formula sheet</li>
+        </ul>
+      </div>
+      <div class="bottom-nav"><span>Home</span><span>Library</span><span>Assistant</span><span
+          class="active">Profile</span></div>
+    </section>
+    </div>
+    </div>
+    </div>
     </section>
   </header>
 
@@ -326,7 +323,7 @@
       <div class="cta-glow"></div>
       <span class="pill">Free forever</span>
       <h2>Start learning CS the smarter way.</h2>
-      <p>No Play Store listing needed — download the APK directly and install in seconds.</p>
+      <p>Download the APK directly and install in seconds to experience the new standard of learning.</p>
       <a class="download-btn large" href="app-release.apk" download="CodeCore.apk" onclick="triggerDownload(event)">
         <span class="dl-badge">↓</span>
         <span class="dl-text">
@@ -339,6 +336,29 @@
       </p>
     </section>
   </main>
+
+  <!-- ═══ FEEDBACK & STATS ═══ -->
+  <section class="feedback-stats shell">
+    <div class="fs-grid">
+      <div class="stats-card">
+        <div class="stat-icon live-pulse">⚡</div>
+        <div class="stat-info">
+          <span class="muted">Live Website Visitors</span>
+          <strong id="live-visitor-count">Loading...</strong>
+        </div>
+      </div>
+
+      <div class="feedback-card" id="feedback-card">
+        <h3>Rate your experience</h3>
+        <p class="muted">We value your feedback to improve.</p>
+        <div class="star-rating" id="starRating">
+          <span class="star" data-val="1">★</span><span class="star" data-val="2">★</span><span class="star"
+            data-val="3">★</span><span class="star" data-val="4">★</span><span class="star" data-val="5">★</span>
+        </div>
+        <button class="feedback-btn" id="submitFeedbackBtn">Submit Rating</button>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ TOAST ═══ -->
   <div class="toast" id="dlToast">
